@@ -11,7 +11,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge.");
 
         do
         {
@@ -169,7 +169,7 @@ class Challenges
                 validInput1 = false;
             }
 
-            if (choice == "Hours")
+            else if (choice == "Hours")
             {
                 validInput1 = true;
                 Console.WriteLine("I will now take a number to represent a number of hours, and convert it into seconds.");
@@ -184,7 +184,7 @@ class Challenges
                 validInput1 = false;
             }
 
-            if (choice == "Polygon")
+            else if (choice == "Polygon")
             {
 
                 validInput1 = true;
@@ -213,7 +213,7 @@ class Challenges
                 while (validInput2 == true && validInput1 == true);
             }
 
-            if (choice == "Edabit")
+            else if (choice == "Edabit")
             {
 
                 validInput1 = true;
@@ -224,6 +224,52 @@ class Challenges
                 string name = Console.ReadLine();
 
                 Console.WriteLine($"Your result is: " + Name(name) + ".");
+
+                validInput1 = false;
+            }
+            else if (choice == "And")
+            {
+                validInput1 = true;
+
+                bool sp = true;
+                bool te = true;
+
+                Console.WriteLine("I am now going to take two boolean values and return true if both are true. For the first, type T for true, F for false:");
+
+                string spa = Console.ReadLine();
+
+                if (spa == "T")
+                {
+                    sp = true;
+                }
+                if (spa == "F")
+                {
+                    sp = false;
+                }
+
+                Console.WriteLine("For the second, type T for true, F for false:");
+
+                string ten = Console.ReadLine();
+
+                if (ten == "T")
+                {
+                    te = true;
+                }
+                if (ten == "F")
+                {
+                    te = false;
+                }
+
+                Console.WriteLine($" I will now return the value of these booleans combined");
+
+                if (And(sp, te) == true)
+                {
+                    Console.WriteLine($"Both booleans were true, so the results return true.");
+                }
+                else if (And(sp, te) == false)
+                {
+                    Console.WriteLine($"One or more booleans were false, so the results return false.");
+                }
 
                 validInput1 = false;
             }
@@ -288,6 +334,22 @@ class Challenges
     {
         string result = name + "Edabit";
         return result;
+    }
+
+    public static bool And(bool a, bool b)
+    {
+        if (a == false)
+        {
+            return false;
+        }
+        else if (a == true && b == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

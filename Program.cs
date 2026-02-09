@@ -273,6 +273,23 @@ class Challenges
 
                 validInput1 = false;
             }
+            else if(choice == "Points")
+            {
+                validInput1 = true;
+                Console.WriteLine("Imagine the points being counted for a basketball game. \n Please enter a number to represent how many 3-pointers the team earned:");
+
+                var threeNum = Console.ReadLine();
+                int threeInt = int.Parse(threeNum);
+
+                Console.WriteLine("Now, please type a number to represent how many 2-pointers the team earned:");
+
+                var twoNum = Console.ReadLine();
+                int twoInt = int.Parse(twoNum);
+
+                Console.WriteLine($"Got it! The total amount of points earned is " + Points(threeInt, twoInt) + "!");
+
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -350,6 +367,11 @@ class Challenges
         {
             return false;
         }
+    }
+
+    public static int Points(int a, int b)
+    {
+        return a * 3 + b * 2;
     }
 
 }

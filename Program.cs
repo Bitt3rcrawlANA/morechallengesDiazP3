@@ -11,7 +11,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge.");
 
         do
         {
@@ -217,7 +217,6 @@ class Challenges
             {
 
                 validInput1 = true;
-                bool validInput2 = false;
                 Console.WriteLine("I will link together a name you type and Edabit.");
                 Console.WriteLine("Please enter any name:");
 
@@ -287,6 +286,35 @@ class Challenges
                 int twoInt = int.Parse(twoNum);
 
                 Console.WriteLine($"Got it! The total amount of points earned is " + Points(threeInt, twoInt) + "!");
+
+                validInput1 = false;
+            }
+            else if (choice == "RectPerimeter")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now calculate the perimeter of a rectangle. Please enter a number to represent the height:");
+
+                var feaNum = Console.ReadLine();
+                int feaInt = int.Parse(feaNum);
+
+                Console.WriteLine("Now, please enter a number to represent the width:");
+
+                var preNum = Console.ReadLine();
+                int preInt = int.Parse(preNum);
+
+                Console.WriteLine($"Got it! The perimeter of the rectangle " + Perim(feaInt, preInt) + "!");
+
+                validInput1 = false;
+            }
+            else if (choice == "Greet")
+            {
+
+                validInput1 = true;
+                Console.WriteLine("Please enter your name:");
+
+                string name2 = Console.ReadLine();
+
+                Console.WriteLine($"Alright. " + Hello(name2));
 
                 validInput1 = false;
             }
@@ -372,6 +400,16 @@ class Challenges
     public static int Points(int a, int b)
     {
         return a * 3 + b * 2;
+    }
+
+    public static int Perim(int a, int b)
+    {
+        return a * 2 + b * 2;
+    }
+    public static string Hello(string name)
+    {
+        string result = "Hello, " + name + "! Thank you for running these code challenges!";
+        return result;
     }
 
 }

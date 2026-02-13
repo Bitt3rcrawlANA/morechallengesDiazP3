@@ -11,7 +11,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge.");
 
         do
         {
@@ -272,7 +272,7 @@ class Challenges
 
                 validInput1 = false;
             }
-            else if(choice == "Points")
+            else if (choice == "Points")
             {
                 validInput1 = true;
                 Console.WriteLine("Imagine the points being counted for a basketball game. \n Please enter a number to represent how many 3-pointers the team earned:");
@@ -315,6 +315,28 @@ class Challenges
                 string name2 = Console.ReadLine();
 
                 Console.WriteLine($"Alright. " + Hello(name2));
+
+                validInput1 = false;
+            }
+            else if (choice == "Animals")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now calculate the amount of legs between all the animals a farmer raises. \nPlease enter a number for the amount of chickens (one chicken = two legs) he has:");
+
+                var chiNum = Console.ReadLine();
+                int chiInt = int.Parse(chiNum);
+
+                Console.WriteLine("Now, please enter a number for the cows (one cow = four legs):");
+
+                var cowNum = Console.ReadLine();
+                int cowInt = int.Parse(cowNum);
+
+                Console.WriteLine("Now, please enter a number for the pigs (one pig = four legs):");
+
+                var pigNum = Console.ReadLine();
+                int pigInt = int.Parse(pigNum);
+
+                Console.WriteLine($"Got it! The amount of legs between all the animals is " + Animals(chiInt, cowInt, pigInt) + " legs!");
 
                 validInput1 = false;
             }
@@ -412,5 +434,9 @@ class Challenges
         return result;
     }
 
+    public static int Animals(int a, int b, int c)
+    {
+        return a * 2 + b * 4 + c * 4;
+    }
 }
 

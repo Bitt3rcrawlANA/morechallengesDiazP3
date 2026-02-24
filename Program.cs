@@ -11,7 +11,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge.");
 
         do
         {
@@ -340,6 +340,28 @@ class Challenges
 
                 validInput1 = false;
             }
+            else if (choice == "Score")
+            {
+                validInput1 = true;
+                Console.WriteLine("Imagine the points being counted for a football game. \nPlease enter a number to represent how many wins the team obtained:");
+
+                var winNum = Console.ReadLine();
+                int winInt = int.Parse(winNum);
+
+                Console.WriteLine("Now, please type a number to represent how many 2-pointers the team earned:");
+
+                var drawNum = Console.ReadLine();
+                int drawInt = int.Parse(drawNum);
+
+                Console.WriteLine("Finally, please type a number to represent how many losses the team obtained:");
+
+                var lossNum = Console.ReadLine();
+                int lossInt = int.Parse(lossNum);
+
+                Console.WriteLine($"Got it! The total amount of points the football teamed earned is " + TotalPoints(winInt, drawInt, lossInt) + "!");
+
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -437,6 +459,10 @@ class Challenges
     public static int Animals(int a, int b, int c)
     {
         return a * 2 + b * 4 + c * 4;
+    }
+    public static int TotalPoints(int a, int b, int c)
+    {
+        return a * 3 + b + c * 0;
     }
 }
 

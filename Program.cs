@@ -3,6 +3,7 @@
 using System.Data;
 using System.Diagnostics.Metrics;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 
 class Challenges
@@ -11,7 +12,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge.");
 
         do
         {
@@ -362,6 +363,33 @@ class Challenges
 
                 validInput1 = false;
             }
+            else if (choice == "Month")
+            {
+                validInput1 = true;
+                bool errorCheck = true;
+                do
+                {
+                    Console.WriteLine("I will now print the name of a Month depending on the number you type below. \nPlease enter a number from 1-12:");
+
+                    var monthNum = Console.ReadLine();
+                    int monthInt = int.Parse(monthNum);
+
+                    if (monthInt > 12 || monthInt < 1)
+                    {
+                        errorCheck = true;
+                        Console.WriteLine($"Not a month that exists. Try again!");
+                    }
+
+                    if (monthInt <= 12 && monthInt >= 1)
+                    {
+                        errorCheck = false;
+                        Console.WriteLine($"Got it! Based on this number, the month of the year is: " + MonthName(monthInt) + "!");
+
+                        validInput1 = false;
+                    }
+                }
+                while (errorCheck == true && validInput1 == true);
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -463,6 +491,74 @@ class Challenges
     public static int TotalPoints(int a, int b, int c)
     {
         return a * 3 + b + c * 0;
+    }
+    public static string MonthName(int a)
+    {
+        if (a == 1)
+        {
+            string result = "January";
+            return result;
+        }
+        else if (a == 2)
+        {
+            string result = "February";
+            return result;
+        }
+        else if (a == 3)
+        {
+            string result = "March";
+            return result;
+        }
+        else if (a == 4)
+        {
+            string result = "April";
+            return result;
+        }
+        else if (a == 5)
+        {
+            string result = "May";
+            return result;
+        }
+        else if (a == 6)
+        {
+            string result = "June";
+            return result;
+        }
+        else if (a == 7)
+        {
+            string result = "July";
+            return result;
+        }
+        else if (a == 8)
+        {
+            string result = "August";
+            return result;
+        }
+        else if (a == 9)
+        {
+            string result = "September";
+            return result;
+        }
+        else if (a == 10)
+        {
+            string result = "October";
+            return result;
+        }
+        else if (a == 11)
+        {
+            string result = "November";
+            return result;
+        }
+        else if (a == 12)
+        {
+            string result = "December";
+            return result;
+        }
+        else
+        {
+            string error = "Error";
+            return error;
+        }
     }
 }
 

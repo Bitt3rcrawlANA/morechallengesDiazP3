@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 class Challenges
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         bool validInput1 = false;
 
@@ -31,7 +31,7 @@ class Challenges
                 var ageNum = Console.ReadLine();
                 int ageInt = int.Parse(ageNum);
 
-                Console.WriteLine($"Got it! " + ageNum + " years is equivalent to " + Convert(ageInt) + " days.");
+                Console.WriteLine($"Got it! " + ageNum + " years is equivalent to " + ConvertA(ageInt) + " days.");
 
                 validInput1 = false;
             }
@@ -390,6 +390,26 @@ class Challenges
                 }
                 while (errorCheck == true && validInput1 == true);
             }
+            else if (choice == "MinMax")
+            {
+                validInput1 = true;
+                int total = 5;
+                float[] data = new float[total];
+
+                for (int i = 0; i < total; i++)
+                {
+                    data[i] = Convert.ToSingle(Console.ReadLine());
+                }
+
+                float min = 0.0f;
+                float max = 0.0f;
+
+                FindMinMax(ref data, ref min, ref max);
+
+                Console.WriteLine(min);
+                Console.WriteLine(max);
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -401,7 +421,7 @@ class Challenges
 
     }
 
-    static int Convert(int a)
+    static int ConvertA(int a)
     {
         return a * 365;
     }
@@ -558,6 +578,23 @@ class Challenges
         {
             string error = "Error";
             return error;
+        }
+    }
+    public static void FindMinMax(ref float[] data, ref float min, ref float max)
+    {
+        max = data[0];
+        min = data[0];
+
+        for (int i = 1; i < data.Length; i++)
+        {
+            if (data[i] > max)
+            {
+                max = data[i];
+            }
+            if (data[i] < min)
+            {
+                min = data[i];
+            }
         }
     }
 }

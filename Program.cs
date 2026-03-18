@@ -5,6 +5,7 @@ using System.Diagnostics.Metrics;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Challenges
 {
@@ -415,24 +416,19 @@ class Challenges
             else if (choice == "Absolute")
             {
                 validInput1 = true;
-                Console.WriteLine("I will now find the absolute values of each number in an array of numbers. \n Please enter 5 numbers:");
+                Console.WriteLine("I will now find the sum of the absolute values in an array of numbers. \n Please enter 5 numbers:");
 
+                int total2 = 5;
+                float[] data2 = new float[total2];
 
-                int total = 5;
-                float[] data = new float[total];
-
-                for (int i = 0; i < total; i++)
+                for (int i = 0; i < total2; i++)
                 {
-                    data[i] = Convert.ToSingle(Console.ReadLine());
+                    data2[i] = Convert.ToSingle(Console.ReadLine());
                 }
 
-                float min = 0.0f;
-                float max = 0.0f;
+                AbsSum(total2);
 
-                FindMinMax(ref data, ref min, ref max);
-
-                Console.WriteLine("Got it! The minimum number is " + min);
-                Console.WriteLine("The maximum number is " + max);
+                Console.WriteLine("Got it! The absolute values of every number are: " + );
                 validInput1 = false;
             }
             else
@@ -621,6 +617,15 @@ class Challenges
                 min = data[i];
             }
         }
+    }
+    public static void AbsSum(int[] numbers)
+    {
+        int sum = 0;
+        foreach (int n in numbers)
+        {
+            sum += Math.Abs(n);
+        }
+
     }
 }
 

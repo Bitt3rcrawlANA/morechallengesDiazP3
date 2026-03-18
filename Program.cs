@@ -12,7 +12,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge.");
 
         do
         {
@@ -393,6 +393,8 @@ class Challenges
             else if (choice == "MinMax")
             {
                 validInput1 = true;
+                Console.WriteLine("I will now find the minimun and maximun values in an array of numbers. \n Please enter 5 numbers:");
+
                 int total = 5;
                 float[] data = new float[total];
 
@@ -406,8 +408,31 @@ class Challenges
 
                 FindMinMax(ref data, ref min, ref max);
 
-                Console.WriteLine(min);
-                Console.WriteLine(max);
+                Console.WriteLine("Got it! The minimum number is " + min);
+                Console.WriteLine("The maximum number is " + max);
+                validInput1 = false;
+            }
+            else if (choice == "Absolute")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now find the absolute values of each number in an array of numbers. \n Please enter 5 numbers:");
+
+
+                int total = 5;
+                float[] data = new float[total];
+
+                for (int i = 0; i < total; i++)
+                {
+                    data[i] = Convert.ToSingle(Console.ReadLine());
+                }
+
+                float min = 0.0f;
+                float max = 0.0f;
+
+                FindMinMax(ref data, ref min, ref max);
+
+                Console.WriteLine("Got it! The minimum number is " + min);
+                Console.WriteLine("The maximum number is " + max);
                 validInput1 = false;
             }
             else

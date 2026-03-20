@@ -13,7 +13,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge.");
 
         do
         {
@@ -415,20 +415,23 @@ class Challenges
             }
             else if (choice == "Absolute")
             {
+                Console.WriteLine($"Work in progress.");
+                validInput1 = false;
+            }
+            else if (choice == "Exponent")
+            {
                 validInput1 = true;
-                Console.WriteLine("I will now find the sum of the absolute values in an array of numbers. \n Please enter 5 numbers:");
+                Console.WriteLine("I will now find the product of a base and an exponent. \n Please enter a number for the base:");
 
-                int total2 = 5;
-                float[] data2 = new float[total2];
+                var base2Num = Console.ReadLine();
+                int base2Int = int.Parse(base2Num);
 
-                for (int i = 0; i < total2; i++)
-                {
-                    data2[i] = Convert.ToSingle(Console.ReadLine());
-                }
+                Console.WriteLine("Please enter a number for the exponent:");
 
-                AbsSum(total2);
+                var expNum = Console.ReadLine();
+                int expInt = int.Parse(expNum);
 
-                Console.WriteLine("Got it! The absolute values of every number are: " + );
+                Console.WriteLine("Got it! The product of " + base2Num + " to the power of " + expNum + " is: " + ExpoCal(base2Int, expInt) + ".");
                 validInput1 = false;
             }
             else
@@ -626,6 +629,11 @@ class Challenges
             sum += Math.Abs(n);
         }
 
+    }
+    public static int ExpoCal(int a, int b)
+    {
+        double result = Math.Pow(a, b);
+        return (int)result;
     }
 }
 

@@ -2,6 +2,7 @@
 
 using System.Data;
 using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
@@ -13,7 +14,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge.");
 
         do
         {
@@ -434,13 +435,34 @@ class Challenges
                 Console.WriteLine("Got it! The product of " + base2Num + " to the power of " + expNum + " is: " + ExpoCal(base2Int, expInt) + ".");
                 validInput1 = false;
             }
+            else if (choice == "ByLength")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now find the minimun and maximun values in an array of numbers. \n Please enter hopw long your array will be:");
+
+                var arrNum = Console.ReadLine();
+                int arrInt = int.Parse(arrNum);
+
+                Console.WriteLine("Now, enter your numbers:");
+
+                float[] data = new float[arrInt];
+
+                for (int i = 0; i < arrInt; i++)
+                {
+                    data[i] = Convert.ToSingle(Console.ReadLine());
+                }
+                float arrFloat = arrInt;
+
+                Console.WriteLine("Got it! The multiplied arrary of numbers is: " + MultiplyByLength(ref data, ref arrFloat) + "!");
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
 
                 validInput1 = false;
             }
-        } 
+        }
         while (validInput1 == false);
 
     }
@@ -488,9 +510,9 @@ class Challenges
     }
     static int SumPolygon(int a)
     {
-       return (a - 2) * 180;
+        return (a - 2) * 180;
     }
-    
+
     public static string Name(string name)
     {
         string result = name + "Edabit";
@@ -634,6 +656,15 @@ class Challenges
     {
         double result = Math.Pow(a, b);
         return (int)result;
+    }
+    public static float[] MultiplyByLength(ref float[] numbers, float length)
+    {
+        length = numbers.Length;
+        for (int i = 0; i < length; i++)
+        {
+            numbers[i] *= length;
+        }
+        return numbers;
     }
 }
 

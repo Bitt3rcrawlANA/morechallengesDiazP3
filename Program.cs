@@ -14,7 +14,7 @@ class Challenges
     {
         bool validInput1 = false;
 
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n Factorial Challenge.");
 
         do
         {
@@ -453,7 +453,18 @@ class Challenges
                 }
                 float arrFloat = arrInt;
 
-                Console.WriteLine("Got it! The multiplied arrary of numbers is: " + MultiplyByLength(ref data, ref arrFloat) + "!");
+               //Console.WriteLine("Got it! The multiplied arrary of numbers is: " + MultiplyByLength(ref data, ref arrFloat) + "!");
+                validInput1 = false;
+            }
+            else if (choice == "Factorial")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now find the factorial of a number. \n Please enter an integer:");
+
+                var factNum = Console.ReadLine();
+                int factInt = int.Parse(factNum);
+                
+                Console.WriteLine("Got it! The factorial of " + factNum + " is " + Factorial(factInt) + "!");
                 validInput1 = false;
             }
             else
@@ -665,6 +676,17 @@ class Challenges
             numbers[i] *= length;
         }
         return numbers;
+    }
+    public static long Factorial(int a)
+    {
+        if (a < 0) throw new ArgumentException("Number must be non-negative.");
+
+        long result = 1;
+        for (int i = 1; i <= a; i++)
+        {
+            result *= i;
+        }
+        return result;
     }
 }
 

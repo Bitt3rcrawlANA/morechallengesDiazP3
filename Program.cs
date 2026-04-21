@@ -1,11 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.ComponentModel.Design;
 using System.Data;
 using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Challenges
@@ -13,8 +15,8 @@ class Challenges
     public static void Main(string[] args)
     {
         bool validInput1 = false;
-
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n Factorial Challenge.");
+        bool sameNumber = false;
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n SmallerNumber Challenge, \n Factorial Challenge, \n Vowel Challenge.");
 
         do
         {
@@ -456,6 +458,23 @@ class Challenges
                //Console.WriteLine("Got it! The multiplied arrary of numbers is: " + MultiplyByLength(ref data, ref arrFloat) + "!");
                 validInput1 = false;
             }
+            else if (choice == "SmallerNumber")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will compare a pair of number to find the smaller of the two. Please enter the first number:");
+
+                var yaNum = Console.ReadLine();
+                int yaInt = int.Parse(yaNum);
+
+                Console.WriteLine("Now enter the second number:");
+
+                var oiNum = Console.ReadLine();
+                int oiInt = int.Parse(oiNum);
+
+                Console.WriteLine($"Got it! The smaller number of this set is " + SmallerNum(yaInt, oiInt) + "!");
+
+                validInput1 = false;
+            }
             else if (choice == "Factorial")
             {
                 validInput1 = true;
@@ -465,6 +484,16 @@ class Challenges
                 int factInt = int.Parse(factNum);
                 
                 Console.WriteLine("Got it! The factorial of " + factNum + " is " + Factorial(factInt) + "!");
+                validInput1 = false;
+            }
+            else if (choice == "Vowel")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now find the amount of vowels in a string. \n Please enter a word (or multiple!):");
+
+                string vowelstring = Console.ReadLine();
+
+                Console.WriteLine("Got it! The amount of vowels in " + vowelstring + " is " + CountVowels(vowelstring) + "!");
                 validInput1 = false;
             }
             else
@@ -677,6 +706,21 @@ class Challenges
         }
         return numbers;
     }
+    public static int SmallerNum(int a, int b)
+    {
+        if (a < b)
+        {
+            return a;
+        }
+        else if (a > b)
+        {
+            return b;
+        }
+        else
+        {
+            return a;
+        }
+    }
     public static long Factorial(int a)
     {
         if (a < 0) throw new ArgumentException("Number must be non-negative.");
@@ -687,6 +731,20 @@ class Challenges
             result *= i;
         }
         return result;
+    }
+    public static int CountVowels(string str)
+    {
+        int count = 0;
+        string vowels = "aeiouAEIOU";
+
+        foreach (char c in str)
+        {
+            if (vowels.Contains(c))
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }
 

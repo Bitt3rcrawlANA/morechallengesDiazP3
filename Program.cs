@@ -16,7 +16,7 @@ class Challenges
     {
         bool validInput1 = false;
         bool sameNumber = false;
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n SmallerNumber Challenge, \n Factorial Challenge, \n Vowel Challenge.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n SmallerNumber Challenge, \n Factorial Challenge, \n Vowel Challenge, \n HammingDistance.");
 
         do
         {
@@ -496,6 +496,20 @@ class Challenges
                 Console.WriteLine("Got it! The amount of vowels in " + vowelstring + " is " + CountVowels(vowelstring) + "!");
                 validInput1 = false;
             }
+            else if (choice == "HammingDistance")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now compare two strings and find the hamming distance. \n Please enter the first string:");
+
+                string string1 = Console.ReadLine();
+
+                Console.WriteLine("Please enter the second string:");
+
+                string string2 = Console.ReadLine();
+
+                Console.WriteLine($"Got it! The hamming distance between both strings is " + HammingDistance(string1, string2) + "!");
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -745,6 +759,20 @@ class Challenges
             }
         }
         return count;
+    }
+    public static int HammingDistance(string str1, string str2)
+    {
+        int distance = 0;
+
+        for (int i = 0; i < str1.Length; i++)
+        {
+            if (str1[i] != str2[i])
+            {
+                distance++;
+            }
+        }
+
+        return distance;
     }
 }
 

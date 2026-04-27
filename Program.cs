@@ -16,7 +16,7 @@ class Challenges
     {
         bool validInput1 = false;
         bool sameNumber = false;
-        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n SmallerNumber Challenge, \n Factorial Challenge, \n Vowel Challenge, \n HammingDistance.");
+        Console.WriteLine("Welcome to More Challlenges! There are 4 challenges to choose from: \n Age Challenge, \n TriArea Challenge, \n ZeroCompare Challenge, \n HundredCompare Challenge, \n EqualTo Challenge, \n Something Challenge, \n Reverse Challenge, \n Hours Challenge, \n Polygon Challenge, \n Edabit Challenge, \n And Challenge, \n Points Challenge, \n RectPerimeter Challenge, \n Greet Challenge, \n Animals Challenge, \n Score Challenge, \n Month Challenge, \n MinMax Challenge, \n Absolute Challenge, \n Exponent Challenge, \n ByLength Challenge, \n SmallerNumber Challenge, \n Factorial Challenge, \n Vowel Challenge, \n HammingDistance Challenge, \n Shuffle Challenge.");
 
         do
         {
@@ -510,6 +510,16 @@ class Challenges
                 Console.WriteLine($"Got it! The hamming distance between both strings is " + HammingDistance(string1, string2) + "!");
                 validInput1 = false;
             }
+            else if (choice == "Shuffle")
+            {
+                validInput1 = true;
+                Console.WriteLine("I will now shuffle the surnames and given names of any person. \n Please enter a name:");
+
+                string stringname = Console.ReadLine();
+
+                Console.WriteLine($"Got it! " + stringname + " shuffled is: " + NameShuffle(stringname) + "!");
+                validInput1 = false;
+            }
             else
             {
                 Console.WriteLine($"Sorry, that Challenge doesn't exist.");
@@ -773,6 +783,13 @@ class Challenges
         }
 
         return distance;
+    }
+
+    public static string NameShuffle(string str)
+    {
+        string[] names = str.Split(' ');
+
+        return names[1] + " " + names[0];
     }
 }
 
